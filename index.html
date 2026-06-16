@@ -17,14 +17,74 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
       </ul>
     </div>
   </nav>
 
+  <!-- Command Palette -->
+  <div class="cmd-palette-overlay" id="cmd-palette">
+    <div class="cmd-palette">
+      <div class="cmd-palette-input-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" class="cmd-palette-input" id="cmd-input" placeholder="Search pages, sections...">
+      </div>
+      <div class="cmd-palette-results" id="cmd-results">
+        <a class="cmd-palette-item" data-label="Home" data-href="index.html" data-desc="Landing page">
+          <span class="cmd-palette-item-icon">🏠</span>
+          <span class="cmd-palette-item-label">Home</span>
+          <span class="cmd-palette-item-desc">Landing</span>
+        </a>
+        <a class="cmd-palette-item" data-label="About" data-href="about.html" data-desc="Background & roles">
+          <span class="cmd-palette-item-icon">👤</span>
+          <span class="cmd-palette-item-label">About</span>
+          <span class="cmd-palette-item-desc">Learn about me</span>
+        </a>
+        <a class="cmd-palette-item" data-label="Work" data-href="work.html" data-desc="Projects & case studies">
+          <span class="cmd-palette-item-icon">💼</span>
+          <span class="cmd-palette-item-label">Work</span>
+          <span class="cmd-palette-item-desc">View projects</span>
+        </a>
+        <a class="cmd-palette-item" data-label="Blog" data-href="blog.html" data-desc="Journal & articles">
+          <span class="cmd-palette-item-icon">📝</span>
+          <span class="cmd-palette-item-label">Blog</span>
+          <span class="cmd-palette-item-desc">Read articles</span>
+        </a>
+        <a class="cmd-palette-item" data-label="Contact" data-href="contact.html" data-desc="Get in touch">
+          <span class="cmd-palette-item-icon">📬</span>
+          <span class="cmd-palette-item-label">Contact</span>
+          <span class="cmd-palette-item-desc">Reach out</span>
+        </a>
+        <a class="cmd-palette-item" data-label="GitHub" data-href="https://github.com/Lijnaff" data-desc="External →">
+          <span class="cmd-palette-item-icon">💻</span>
+          <span class="cmd-palette-item-label">GitHub</span>
+          <span class="cmd-palette-item-desc">Lijnaff</span>
+        </a>
+        <a class="cmd-palette-item" data-label="LinkedIn" data-href="https://linkedin.com/in/nafyad-fantaye-97213a2a6" data-desc="External →">
+          <span class="cmd-palette-item-icon">💼</span>
+          <span class="cmd-palette-item-label">LinkedIn</span>
+          <span class="cmd-palette-item-desc">Nafyad Fantaye</span>
+        </a>
+        <a class="cmd-palette-item" data-label="Resume" data-href="#resume" data-desc="Download PDF">
+          <span class="cmd-palette-item-icon">📄</span>
+          <span class="cmd-palette-item-label">Resume</span>
+          <span class="cmd-palette-item-desc">Download PDF</span>
+        </a>
+      </div>
+      <div class="cmd-palette-hint">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <canvas id="particle-canvas"></canvas>
     <div class="container">
       <div class="hero-content">
         <div class="hero-badge fade-in">
@@ -33,7 +93,7 @@
         </div>
         <h1 class="fade-in">
           <span class="line">Full-Stack Engineer</span>
-          <span class="line">&amp; <span class="accent">Digital Creator</span></span>
+          <span class="line">&amp; <span class="accent"><span class="typing-container"><span id="typing-text"></span><span class="typing-cursor"></span></span></span></span>
         </h1>
         <p class="hero-desc fade-in">
           I drive business growth through custom software automation, end-to-end branding, and high-performance technical infrastructure. Based in Addis Ababa, Ethiopia — shipping globally.
@@ -44,6 +104,23 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+          <a href="#resume" class="btn btn-resume" id="resume">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Resume
+          </a>
+          <div class="visitor-counter" title="Your visits to this site">
+            👁 <span class="count" id="visitor-count">0</span> visits
+          </div>
+        </div>
+        <!-- GitHub Stats -->
+        <div class="github-stats" id="github-stats">
+          <div class="github-stat">
+            <span class="github-stat-icon">⏳</span>
+            <div>
+              <div class="github-stat-value">—</div>
+              <div class="github-stat-label">Loading...</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,27 +164,27 @@
         <h2 class="section-title">What I work with</h2>
       </div>
       <div class="tech-grid">
-        <div class="tech-item fade-in"><div class="tech-icon">⚛️</div><span class="tech-name">React</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">▲</div><span class="tech-name">Next.js</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">☄️</div><span class="tech-name">Astro</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🐍</div><span class="tech-name">Python</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🟢</div><span class="tech-name">Node.js</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🍃</div><span class="tech-name">MongoDB</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🗄️</div><span class="tech-name">SQL</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🎨</div><span class="tech-name">Tailwind CSS</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🛡️</div><span class="tech-name">pfSense</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">📡</div><span class="tech-name">OpenWrt</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🔲</div><span class="tech-name">Docker</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🖥️</div><span class="tech-name">Proxmox</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🎬</div><span class="tech-name">CapCut 4K</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🖌️</div><span class="tech-name">Photoshop</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">✒️</div><span class="tech-name">Illustrator</span></div>
-        <div class="tech-item fade-in"><div class="tech-icon">🤖</div><span class="tech-name">AI / OpenClaw</span></div>
+        <div class="tech-item fade-in"><div class="tech-icon">⚛️</div><span class="tech-name">React</span><div class="tech-tooltip">Harme Cafe dashboard, Hilcoe CRM</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">▲</div><span class="tech-name">Next.js</span><div class="tech-tooltip">Full-stack web platforms</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">☄️</div><span class="tech-name">Astro</span><div class="tech-tooltip">Static sites & content</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🐍</div><span class="tech-name">Python</span><div class="tech-tooltip">AI training, automation scripts</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🟢</div><span class="tech-name">Node.js</span><div class="tech-tooltip">API services, backends</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🍃</div><span class="tech-name">MongoDB</span><div class="tech-tooltip">Hilcoe CRM database</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🗄️</div><span class="tech-name">SQL</span><div class="tech-tooltip">Data scripting, reporting</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🎨</div><span class="tech-name">Tailwind CSS</span><div class="tech-tooltip">Rapid UI development</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🛡️</div><span class="tech-name">pfSense</span><div class="tech-tooltip">Harme Cafe network firewall</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">📡</div><span class="tech-name">OpenWrt</span><div class="tech-tooltip">Mesh networks, captive portals</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🔲</div><span class="tech-name">Docker</span><div class="tech-tooltip">Glitch AI, local servers</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🖥️</div><span class="tech-name">Proxmox</span><div class="tech-tooltip">Virtualization & NAS backups</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🎬</div><span class="tech-name">CapCut 4K</span><div class="tech-tooltip">Promotional video content</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🖌️</div><span class="tech-name">Photoshop</span><div class="tech-tooltip">Brand identity, marketing</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">✒️</div><span class="tech-name">Illustrator</span><div class="tech-tooltip">Logo & vector design</div></div>
+        <div class="tech-item fade-in"><div class="tech-icon">🤖</div><span class="tech-name">AI / OpenClaw</span><div class="tech-tooltip">Project Glitch, RLHF training</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Signal Flares -->
+  <!-- Signal Flares / Domains -->
   <section class="section" style="padding-top: 20px;">
     <div class="container">
       <div class="section-label fade-in">Domains</div>
@@ -140,7 +217,92 @@
         <div class="card fade-in">
           <div class="card-tag">R&D</div>
           <h3>Problem Solving</h3>
-          <p>500+ algorithmic problems solved on LeetCode and Codefocuses. Focus on efficient, scalable system logic. Specializing in translating complex technical workflows into clear, actionable solutions.</p>
+          <p>500+ algorithmic problems solved on LeetCode and Codeforces. Focus on efficient, scalable system logic. Specializing in translating complex technical workflows into clear, actionable solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Now Section -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Now</div>
+        <h2 class="section-title">What I'm focused on</h2>
+        <p class="section-subtitle">Current priorities, active work, and what's next.</p>
+      </div>
+      <div class="now-card fade-in">
+        <div class="now-item">
+          <span class="now-icon">🤖</span>
+          <div>
+            <div class="now-label">Building</div>
+            <div class="now-text">Project Glitch v2 — expanding the on-premise AI assistant with multi-model support, document RAG pipeline, and a self-hosted dashboard for monitoring inference performance.</div>
+          </div>
+        </div>
+        <div class="now-item">
+          <span class="now-icon">☕</span>
+          <div>
+            <div class="now-label">Growing</div>
+            <div class="now-text">Harme Cafe — scaling the inventory automation to handle multiple locations, adding predictive restocking based on sales patterns, and building a customer loyalty system.</div>
+          </div>
+        </div>
+        <div class="now-item">
+          <span class="now-icon">📚</span>
+          <div>
+            <div class="now-label">Learning</div>
+            <div class="now-text">Rust for systems programming, WebAssembly for edge computing, and advanced RLHF techniques for local model fine-tuning.</div>
+          </div>
+        </div>
+        <div class="now-item">
+          <span class="now-icon">🌍</span>
+          <div>
+            <div class="now-label">Open To</div>
+            <div class="now-text">Remote full-stack projects, AI architecture consulting, and technical co-founder opportunities. If you're building something interesting, let's talk.</div>
+          </div>
+        </div>
+        <div class="now-timestamp">Last updated: July 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="padding-top: 20px;">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Kind Words</div>
+        <h2 class="section-title">What people say</h2>
+        <p class="section-subtitle">From clients, collaborators, and people I've worked with.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">Nafyad transformed our entire manual operation into a streamlined digital system. The inventory tracking alone saved us hours every week. His ability to understand our business needs and translate them into working software is rare.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">H</div>
+            <div>
+              <div class="testimonial-name">Harme Cafe Team</div>
+              <div class="testimonial-role">Client — Business Operations</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">The CRM platform he built for us was exactly what we needed — intuitive, fast, and actually designed for how our sales team works. He didn't just write code, he understood our workflow and built around it.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">A</div>
+            <div>
+              <div class="testimonial-name">Abebe K.</div>
+              <div class="testimonial-role">Hilcoe Car Sales Management</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <p class="testimonial-text">Working with Nafyad was a masterclass in technical communication. He broke down complex infrastructure decisions into clear options and delivered a network setup that's been running flawlessly for over a year.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">Y</div>
+            <div>
+              <div class="testimonial-name">Yeshitila G.</div>
+              <div class="testimonial-role">Reference — MWU</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -153,10 +315,13 @@
         <div style="position: absolute; top: -40%; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
         <h2 style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 16px; position: relative;">Let's build something together</h2>
         <p style="color: var(--text-secondary); max-width: 480px; margin: 0 auto 32px; position: relative;">Open to full-stack projects, AI architecture, infrastructure design, content creation, and technical consulting.</p>
-        <a href="contact.html" class="btn btn-primary" style="position: relative;">
-          Get in touch
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative;">
+          <a href="contact.html" class="btn btn-primary">
+            Get in touch
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="work.html" class="btn btn-outline">View my work</a>
+        </div>
       </div>
     </div>
   </section>
@@ -167,6 +332,7 @@
       <ul class="footer-links">
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>

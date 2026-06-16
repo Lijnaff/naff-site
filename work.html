@@ -16,7 +16,9 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
       </ul>
     </div>
   </nav>
@@ -58,6 +60,21 @@
             <span>Photoshop</span>
             <span>Illustrator</span>
           </div>
+          <button class="case-study-toggle" data-target="case-harme">
+            View Case Study
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="project-case-study" id="case-harme">
+            <div class="project-case-study-inner">
+              <h4>Problem</h4>
+              <p>Harme Cafe was running on manual spreadsheets for sales tracking, inventory management, and financial reporting. Daily reconciliation took 2-3 hours, errors were frequent, and there was no real-time visibility into stock levels or revenue trends.</p>
+              <h4>Solution</h4>
+              <p>Built a custom data scripting pipeline that automated sales logging, inventory deduction, and end-of-day financial carry-over. Designed the complete brand identity (logo, color system, menu layouts) and produced 4K promotional content. Architected the entire commercial network: pfSense firewall, OpenWrt mesh WiFi, dual-carrier 5G failover, captive portal with voucher-based access control, and a Proxmox/Docker server for automated HD security camera backups.</p>
+              <h4>Result</h4>
+              <p>Reduced daily reporting time from 3 hours to under 15 minutes. Zero stock-out incidents since automation went live. Network uptime improved to 99.9% with dual-carrier failover. Brand recognition increased significantly with professional visual assets.</p>
+              <span class="result-highlight">97% time saved on reporting</span>
+            </div>
+          </div>
         </div>
 
         <!-- Project Glitch -->
@@ -76,6 +93,21 @@
             <span>Data Privacy</span>
             <span>Local LLM</span>
             <span>Python</span>
+          </div>
+          <button class="case-study-toggle" data-target="case-glitch">
+            View Case Study
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="project-case-study" id="case-glitch">
+            <div class="project-case-study-inner">
+              <h4>Problem</h4>
+              <p>Needed a personal AI assistant for technical documentation, project management, and daily productivity — but cloud-based solutions raised data privacy concerns and recurring API costs. Existing local solutions were either too complex to set up or lacked the conversational quality needed for productive use.</p>
+              <h4>Solution</h4>
+              <p>Built Glitch on the OpenClaw platform with a fully on-premise architecture. Implemented custom RLHF (Reinforcement Learning from Human Feedback) training to optimize the model's understanding of my specific technical context and communication style. Created a web-based dashboard for chat, model management, training jobs, and document management — all running locally with zero external API dependencies.</p>
+              <h4>Result</h4>
+              <p>Sub-second response times for most queries. Complete data privacy with zero API costs. The RLHF training improved response relevance by ~40% compared to the base model. Now serves as the primary tool for technical research, documentation parsing, and daily productivity.</p>
+              <span class="result-highlight">0$ API costs, full privacy</span>
+            </div>
           </div>
         </div>
 
@@ -96,6 +128,21 @@
             <span>UI/UX</span>
             <span>Wireframing</span>
             <span>API Integration</span>
+          </div>
+          <button class="case-study-toggle" data-target="case-hilcoe">
+            View Case Study
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="project-case-study" id="case-hilcoe">
+            <div class="project-case-study-inner">
+              <h4>Problem</h4>
+              <p>Hilcoe Car Sales was managing their entire sales pipeline, customer data, and vehicle inventory through disconnected spreadsheets. Sales reps had no unified view of customer interactions, inventory was tracked manually, and management lacked real-time reporting on sales performance.</p>
+              <h4>Solution</h4>
+              <p>Authored a comprehensive Software Requirements Document (SRD) and UX wireframes before writing any code. Built a React-based web platform with Node.js backend and MongoDB database, featuring an integrated CRM, automated inventory tracking with status updates, and a management dashboard with real-time sales analytics. The system was designed iteratively with stakeholder feedback at each stage.</p>
+              <h4>Result</h4>
+              <p>Reduced vehicle lookup time from minutes to seconds. Sales team productivity increased by an estimated 30%. Management gained real-time visibility into pipeline health and inventory status. The SRD and wireframe approach ensured zero miscommunication during development.</p>
+              <span class="result-highlight">30% productivity increase</span>
+            </div>
           </div>
         </div>
       </div>
@@ -168,6 +215,7 @@
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
