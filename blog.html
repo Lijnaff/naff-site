@@ -17,6 +17,7 @@
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="resume.html">Resume</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
         <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
       </ul>
@@ -39,7 +40,7 @@
     <div class="container">
       <div class="blog-grid">
         <!-- Post 1 -->
-        <article class="blog-card fade-in">
+        <article class="blog-card fade-in" data-post="post-1">
           <div class="blog-card-image">🤖</div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -48,12 +49,12 @@
             </div>
             <h3>Why I'm Running AI Locally (And You Should Too)</h3>
             <p>The real cost of cloud AI isn't just privacy — it's latency, dependency, and the slow erosion of your ability to think without a middleman. Here's why I built Glitch on-premise and what I learned.</p>
-            <a href="#" class="blog-card-read">Read more →</a>
+            <a href="#" class="blog-card-read" data-post="post-1">Read more →</a>
           </div>
         </article>
 
         <!-- Post 2 -->
-        <article class="blog-card fade-in">
+        <article class="blog-card fade-in" data-post="post-2">
           <div class="blog-card-image">☕</div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -62,12 +63,12 @@
             </div>
             <h3>From Spreadsheets to Software: A Cafe's Digital Transformation</h3>
             <p>How a 3000-row Excel file became a custom inventory system, and the lessons learned about translating real business pain into technical solutions without over-engineering.</p>
-            <a href="#" class="blog-card-read">Read more →</a>
+            <a href="#" class="blog-card-read" data-post="post-2">Read more →</a>
           </div>
         </article>
 
         <!-- Post 3 -->
-        <article class="blog-card fade-in">
+        <article class="blog-card fade-in" data-post="post-3">
           <div class="blog-card-image">🛡️</div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -76,12 +77,12 @@
             </div>
             <h3>Building Unbreakable Networks in Unreliable Environments</h3>
             <p>Dual-carrier 5G failover, captive portals, and mesh WiFi — what it takes to keep a commercial network running when the power fluctuates and the ISP doesn't guarantee uptime.</p>
-            <a href="#" class="blog-card-read">Read more →</a>
+            <a href="#" class="blog-card-read" data-post="post-3">Read more →</a>
           </div>
         </article>
 
         <!-- Post 4 -->
-        <article class="blog-card fade-in">
+        <article class="blog-card fade-in" data-post="post-4">
           <div class="blog-card-image">💻</div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -90,12 +91,12 @@
             </div>
             <h3>500 LeetCode Problems Later: What Actually Matters</h3>
             <p>Patterns that show up everywhere, the data structures that matter in real systems, and why grinding problems is less about the number and more about recognizing the shape of a problem.</p>
-            <a href="#" class="blog-card-read">Read more →</a>
+            <a href="#" class="blog-card-read" data-post="post-4">Read more →</a>
           </div>
         </article>
 
         <!-- Post 5 -->
-        <article class="blog-card fade-in">
+        <article class="blog-card fade-in" data-post="post-5">
           <div class="blog-card-image">🌍</div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -104,12 +105,12 @@
             </div>
             <h3>Building Tech from Addis Ababa</h3>
             <p>The unique advantages and challenges of being a developer in East Africa. Why constraints breed creativity, and why the next wave of great software might not come from Silicon Valley.</p>
-            <a href="#" class="blog-card-read">Read more →</a>
+            <a href="#" class="blog-card-read" data-post="post-5">Read more →</a>
           </div>
         </article>
 
         <!-- Post 6 -->
-        <article class="blog-card fade-in">
+        <article class="blog-card fade-in" data-post="post-6">
           <div class="blog-card-image">🔧</div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
@@ -118,7 +119,7 @@
             </div>
             <h3>Proxmox + Docker: My Homelab Setup for $0/month</h3>
             <p>How I run a full virtualization stack on repurposed hardware — hosting AI models, web services, security cameras, and NAS backups without any cloud costs.</p>
-            <a href="#" class="blog-card-read">Read more →</a>
+            <a href="#" class="blog-card-read" data-post="post-6">Read more →</a>
           </div>
         </article>
       </div>
@@ -132,10 +133,28 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="work.html">Work</a></li>
+        <li><a href="resume.html">Resume</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </footer>
+
+  <!-- Blog Modal (same as index.html) -->
+  <div class="blog-modal-overlay" id="blog-modal">
+    <div class="blog-modal">
+      <div class="blog-modal-header">
+        <h2 id="blog-modal-title"></h2>
+        <button class="blog-modal-close" id="blog-modal-close">✕</button>
+      </div>
+      <div class="blog-modal-body">
+        <div class="blog-modal-meta">
+          <span class="blog-modal-date" id="blog-modal-date"></span>
+          <span class="blog-modal-category" id="blog-modal-category"></span>
+        </div>
+        <div id="blog-modal-body"></div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

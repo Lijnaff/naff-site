@@ -17,6 +17,7 @@
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="blog.html">Blog</a></li>
+        <li><a href="resume.html">Resume</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
         <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button></li>
       </ul>
@@ -122,6 +123,23 @@
       </ul>
     </div>
   </footer>
+
+  <!-- Blog Modal -->
+  <div class="blog-modal-overlay" id="blog-modal">
+    <div class="blog-modal">
+      <div class="blog-modal-header">
+        <h2 id="blog-modal-title"></h2>
+        <button class="blog-modal-close" id="blog-modal-close">✕</button>
+      </div>
+      <div class="blog-modal-body">
+        <div class="blog-modal-meta">
+          <span class="blog-modal-date" id="blog-modal-date"></span>
+          <span class="blog-modal-category" id="blog-modal-category"></span>
+        </div>
+        <div id="blog-modal-body"></div>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
